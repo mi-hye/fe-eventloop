@@ -1,0 +1,23 @@
+@import "reset.css";
+@import "variables.css";
+
+/* view */
+@import "code.css";
+@import "execution-context.css";
+
+body {
+	background-color: var(--main-background-color);
+	width: 100vw;
+	height: 100vh;
+	color: var(--main-font-color);
+	font-family: "Segoe UI";
+	overflow: hidden;
+}
+
+.event-loop-wrap {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	min-width: 1300px;
+	min-height: 650px;
+}
