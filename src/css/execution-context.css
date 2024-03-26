@@ -61,6 +61,7 @@
 	& > div {
 		border: 2px solid var(--wap-api-color);
 		box-shadow: 0px 0px 20px var(--wap-api-color);
+		overflow: hidden;
 	}
 }
 
