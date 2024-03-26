@@ -1,5 +1,4 @@
-export const GREEN_CODE = `
-console.log("start");
+export const GREEN_CODE = `console.log("start");
 
 setTimeout(() => {
     console.log("Timeout");
@@ -9,8 +8,7 @@ Promise.resolve("Promise").then((res) => console.log(res));
 console.log("End");
 `;
 
-export const RED_CODE = `
-fetch('https://api.example.com/data', {
+export const RED_CODE = `fetch('https://api.example.com/data', {
     method: 'GET',
     headers: {
         'Content-Type': 'application/json'
@@ -29,3 +27,9 @@ setTimeout(function() {
     alert('This message is shown after 3 seconds');
 }, 3000);
 `;
+
+export const BTN_CLASS_NAME = {
+	green: "green",
+	red: "red",
+	excute: "code__input__excute",
+};
