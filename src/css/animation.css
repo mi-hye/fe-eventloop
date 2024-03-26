@@ -8,30 +8,30 @@
 
 @keyframes push {
 	0% {
-		transform: translateY(0%);
+		transform: translateY(-100%);
 	}
 	30% {
-		transform: translateY(560%);
+		transform: translateY(550%);
 	}
 	50% {
 		transform: translateY(500%);
 	}
 	65% {
-		transform: translateY(560%);
+		transform: translateY(550%);
 	}
 	100% {
-		transform: translateY(560%);
+		transform: translateY(550%);
 	}
 }
 
 @keyframes pop {
 	0% {
-		transform: translateY(560%);
+		transform: translateY(550%);
 	}
 	20% {
 		transform: translateY(570%);
 	}
 	100% {
-		transform: translateY(0%);
+		transform: translateY(-100%);
 	}
 }

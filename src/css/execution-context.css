@@ -50,6 +50,7 @@
 	& > div {
 		border: 2px solid var(--call-stack-color);
 		box-shadow: 0px 0px 20px var(--call-stack-color);
+		overflow: hidden;
 	}
 }
 
@@ -142,4 +143,3 @@
 	border: var(--main-border);
 	border-radius: var(--main-border-radius);
 }
-
