@@ -33,6 +33,16 @@
 	height: 40%;
 }
 
+.queue-wrap {
+	height: 90%;
+	width: 80%;
+	margin-left: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
 .call-stack {
 	text-align: center;
 	width: 40%;
@@ -88,7 +98,7 @@
 
 .event-loop {
 	margin-top: 30px;
-	margin-left: 20px;
+	margin-left: 30px;
 	position: relative;
 	text-align: center;
 	font-size: 22px;
@@ -116,16 +126,6 @@
 	top: 55%;
 	left: 15px;
 	font-size: 25px;
-}
-
-.queue-wrap {
-	height: 90%;
-	width: 80%;
-	margin-left: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
 }
 
 .box {
