@@ -10,7 +10,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	color: var(--main-font-color);
-	font-family: "Segoe UI";
+	font-family: Roboto;
 	overflow: hidden;
 }
 

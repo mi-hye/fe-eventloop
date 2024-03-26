@@ -1,7 +1,7 @@
 :root {
 	--main-font-color: #fff;
 	--main-background-color: #252526;
-	--call-back-color: #7fff00;
+	--call-stack-color: #7fff00;
 	--wap-api-color: #ff0000;
 	--event-loop-color: #00fffb;
 	--microtask-queue-color: #ff9100;
