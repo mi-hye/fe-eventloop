@@ -1,5 +1,5 @@
 import Elements from "./utils/Elements.js";
-import { addExcuteCode } from "./view/code.js";
+import { addCodeExcute } from "./view/code.js";
 
 Elements.init();
-addExcuteCode();
+addCodeExcute();

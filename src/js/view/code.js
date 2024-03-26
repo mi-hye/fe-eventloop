@@ -1,7 +1,8 @@
 import Elements from "../utils/Elements.js";
 
-export function addExcuteCode() {
+export function addCodeExcute() {
 	Elements.$excuteBtn.addEventListener("click", () => {
-		Elements.$codeExcute.innerHTML = Elements.$textArea.value;
+		const code = Elements.$textArea.value;
+		Elements.$codeExcute.value = code;
 	});
 }
