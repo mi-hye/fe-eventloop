@@ -1,10 +1,13 @@
 const Elements = {
 	$textArea: "",
-	$excuteBtn: "",
+	$buttons: "",
 	$codeExcute: "",
+	$callStack: "",
 	init() {
-		[Elements.$textArea, Elements.$excuteBtn] = document.querySelectorAll(".code__input > *");
+		Elements.$buttons = document.querySelector(".code__input__btn");
+		Elements.$textArea = document.querySelector(".code__input > textarea");
 		Elements.$codeExcute = document.querySelector(".code__excute");
+		Elements.$callStack = document.querySelector(".call-stack > .box");
 	},
 };
 
