@@ -28,7 +28,6 @@ textarea {
 .code__input {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	border: var(--main-border);
 	border-width: 2px;
@@ -52,7 +51,6 @@ textarea {
 }
 
 .code__input__excute {
-	margin-top: 10px;
 	width: 70px;
 	height: 30px;
 	border-radius: var(--main-border-radius);
@@ -74,8 +72,35 @@ textarea {
 	background-color: var(--black);
 	color: white;
 	&::-webkit-scrollbar-thumb {
-		background: var(--black); 
+		background: var(--black);
 		border: 2px solid var(--main-font-color);
 		border-radius: 12px 12px 12px 12px;
+	}
+}
+
+.code__input__btn {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.code__input__code-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	& > button {
+		width: 20px;
+		height: 20px;
+		border-radius: 25px;
+		margin-left: 5px;
+		&:first-child {
+			background-color: var(--call-stack-color);
+			box-shadow: 1px 1px 1px var(--call-stack-color);
+		}
+		&:nth-of-type(2) {
+			background-color: var(--wap-api-color);
+			box-shadow: 1px 1px 1px var(--wap-api-color);
+		}
 	}
 }

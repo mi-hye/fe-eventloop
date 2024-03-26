@@ -1,5 +1,6 @@
 @import "reset.css";
 @import "variables.css";
+@import "animation.css";
 
 /* view */
 @import "code.css";
@@ -12,12 +13,13 @@ body {
 	color: var(--main-font-color);
 	font-family: Roboto;
 	overflow: hidden;
+	display: flex;
 }
 
 .event-loop-wrap {
 	display: flex;
-	width: 100vw;
-	height: 100vh;
 	min-width: 1300px;
+	max-width: 1300px;
 	min-height: 650px;
+	max-height: 650px;
 }
