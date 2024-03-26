@@ -3,14 +3,14 @@
 # 🚩기능 요구사항
 
 ## 🎨UI
-- [ ] 사용자로부터 코드를 입력받는 textarea
-- [ ] 입력받은 코드를 동작시키는 view component
+- [x] 사용자로부터 코드를 입력받는 textarea
+- [x] 입력받은 코드를 동작시키는 view component
 - [ ] 코드 실행시 하이라이트(class='excute')
-- [ ] call stack
-- [ ] wep api
-- [ ] microtask queue
-- [ ] macrotask queue
-- [ ] event loop
+- [x] call stack
+- [x] wep api
+- [x] microtask queue
+- [x] macrotask queue
+- [x] event loop
 **각각 item의 애니매이션은 class로 부여**
 
 ## object literal
@@ -32,8 +32,8 @@
 - [ ] prototype이어도 될 것 같다. (함수1개)
 - [ ] 함수 실행이 끝나자마자 태스크 큐로 이동(class 부여)
 
-
-
+## animation manager
+- [ ] 각 객체들의 애니메이션 컨트롤
 
 ---
 
