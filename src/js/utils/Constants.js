@@ -20,7 +20,9 @@ export const RED_CODE = `fetch('https://api.example.com/data', {
     }
     return response.json();
 })
-.then(data => console.log(data))
+.then(data => { 
+    console.log(data) 
+})
 .catch(error => console.error('There was a problem with your fetch operation:', error));
 
 setTimeout(function() {
@@ -32,4 +34,8 @@ export const BTN_CLASS_NAME = {
 	green: "green",
 	red: "red",
 	excute: "code__input__excute",
+};
+
+export const ANIMATION = {
+	stackDelay: 1500,
 };
