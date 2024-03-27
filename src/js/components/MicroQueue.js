@@ -13,9 +13,21 @@ class MicroQueue {
 		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 	}
 
-	pop(isMicroQueue) {
-        
-    }
+	pop() {
+		const box = document.querySelector(".microtask-queue .code-box");
+		box.classList.remove("goto-micro");
+		box.classList.add("goto-call-stack");
+		return new Promise((resolve) =>
+			setTimeout(() => {
+				box.remove();
+				resolve();
+			}, ANIMATION.delay)
+		);
+	}
+
+	toString() {
+		return "microQueue";
+	}
 }
 
 export default MicroQueue;

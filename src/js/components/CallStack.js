@@ -1,7 +1,8 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "../utils/Elements.js";
 
-class CallStack { // TODO 각 class -> prototype / 겹치는거 많음 상속으로 변경
+class CallStack {
+	// TODO 각 class -> prototype / 겹치는거 많음 상속으로 변경
 	#block;
 
 	constructor(code) {
@@ -23,6 +24,10 @@ class CallStack { // TODO 각 class -> prototype / 겹치는거 많음 상속으
 				resolve();
 			}, ANIMATION.delay)
 		);
+	}
+
+	toString() {
+		return "callstack";
 	}
 }
 

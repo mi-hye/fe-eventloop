@@ -14,6 +14,10 @@ class TaskQueue {
 	}
 
 	pop(isMicroQueue) {}
+
+	toString() {
+		return "taskQueue";
+	}
 }
 
 export default TaskQueue;
