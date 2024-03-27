@@ -19,12 +19,6 @@ const Parser = {
 			}
 		}
 	},
-	isWepAPI(line) {
-		const WEB_API_REGEXP = [/setTimeout/, /setInterval/, /setImmediate/];
-		const result = WEB_API_REGEXP.find((regexp) => regexp.test(line));
-		if (result) return result.toString().slice(1, -1);
-		return false;
-	},
 };
 
 export default Parser;
