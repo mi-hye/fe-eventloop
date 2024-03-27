@@ -1,7 +1,7 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "../utils/Elements.js";
 
-class CallStack {
+class CallStack { // TODO 각 class -> prototype / 겹치는거 많음 상속으로 변경
 	#block;
 
 	constructor(code) {
