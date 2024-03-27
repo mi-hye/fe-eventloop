@@ -13,7 +13,17 @@ class TaskQueue {
 		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 	}
 
-	pop(isMicroQueue) {}
+	pop() {
+		const box = document.querySelector(".macrotask-queue .code-box");
+		box.classList.remove("goto-task-queue");
+		box.classList.add("goto-call-stack"); //TODO
+		return new Promise((resolve) =>
+			setTimeout(() => {
+				box.classList.remove("goto-call-stack");
+				resolve(box);
+			}, ANIMATION.delay)
+		);
+	}
 
 	toString() {
 		return "taskQueue";
