@@ -19,6 +19,9 @@ const Parser = {
 			}
 		}
 	},
+	matchCallbackFn(line) {
+		return line.match(/\(\) => {.*}/)[0];
+	}
 };
 
 export default Parser;
