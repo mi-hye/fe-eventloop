@@ -102,3 +102,36 @@
 		transform: rotate(360deg);
 	}
 }
+
+.goto-call-stack {
+	transform: translate(0, 0);
+	animation: 1.5s ease-in-out 1 forwards gotoCallStack;
+}
+
+@keyframes gotoCallStack {
+	0% {
+		transform: translate(0, 0);
+	}
+	50% {
+		transform: translate(-120%, 0);
+	}
+	100% {
+		transform: translate(-107%, -660%);
+	}
+}
+
+.event-loop-pop {
+	transform: translate(-107%, -660%);
+}
+
+@keyframes event-loop-pop {
+	0% {
+		transform: translate(-107%, -660%);
+	}
+	20% {
+		transform: translate(-107%, -680%);
+	}
+	100% {
+		transform: translate(-107%, -760%);
+	}
+}
