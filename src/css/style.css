@@ -12,7 +12,7 @@ body {
 	height: 100vh;
 	color: var(--main-font-color);
 	font-family: Roboto;
-	overflow: hidden;
+	overflow-y: hidden;
 	display: flex;
 }
 
