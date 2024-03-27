@@ -9,7 +9,7 @@ const Parser = {
 		return lines;
 	},
 	hasCallBack(i, splitedCode, lines) {
-		const regexp = /}(.*)\)/;
+		const regexp = /[}|\)](.*)\)/;
 		let str = ``;
 		for (let t = i; t < splitedCode.length; t++) {
 			str += splitedCode[t].trim();
@@ -20,8 +20,10 @@ const Parser = {
 		}
 	},
 	matchCallbackFn(line) {
-		return line.match(/\(\) => {.*}/)[0];
-	}
+		let callback = line.match(/\(\) => {.*}/)?.[0];
+		callback = line.match(/\(.*\)/)?.[0].slice(1, -1);
+		return callback;
+	},
 };
 
 export default Parser;
