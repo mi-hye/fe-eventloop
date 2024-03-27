@@ -12,7 +12,7 @@ class CallStack {
 	//TODO flag = true
 	push() {
 		Elements.$callStack.innerHTML = this.#block;
-		const box = document.querySelector(".call-stack .code-box");
+		// const box = document.querySelector(".call-stack .code-box");
 		// if (flag) box.classList.add("push");
 		// else box.classList.add("from-to-queue");
 		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
