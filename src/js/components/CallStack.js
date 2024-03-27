@@ -10,7 +10,7 @@ class CallStack {
 
 	push() {
 		Elements.$callStack.innerHTML = this.#block;
-		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.stackDelay));
+		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 	}
 
 	pop() {
@@ -21,7 +21,7 @@ class CallStack {
 			setTimeout(() => {
 				box.remove();
 				resolve();
-			}, ANIMATION.stackDelay)
+			}, ANIMATION.delay)
 		);
 	}
 }

@@ -37,5 +37,5 @@ export const BTN_CLASS_NAME = {
 };
 
 export const ANIMATION = {
-	stackDelay: 1500,
+	delay: 1500,
 };
