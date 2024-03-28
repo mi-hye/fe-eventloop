@@ -41,3 +41,9 @@ export const BTN_CLASS_NAME = {
 export const ANIMATION = {
 	delay: 1500,
 };
+
+export const CALL_BACK = {
+	firstChar: 1,
+	lastChar: -1,
+	maxLength: 30,
+};
