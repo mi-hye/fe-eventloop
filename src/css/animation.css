@@ -37,16 +37,16 @@
 }
 
 .goto-web {
-	transform: translate(-128%, 550%);
+	transform: translate(-128%, 500%);
 	animation: 1.3s ease-in-out 1 forwards gotoweb;
 }
 
 @keyframes gotoweb {
 	from {
-		transform: translate(-128%, 550%);
+		transform: translate(-128%, 500%);
 	}
 	to {
-		transform: translate(0, 550%);
+		transform: translate(0, 500%);
 	}
 }
 
@@ -71,7 +71,7 @@
 		transform: translate(120%, 50%);
 	}
 	100% {
-		transform: translate(-30%, 50%);
+		transform: translate(0, 0);
 	}
 }
 
@@ -86,7 +86,7 @@
 		transform: translate(120%, 60%);
 	}
 	100% {
-		transform: translate(-20%, 60%);
+		transform: translate(0, 0);
 	}
 }
 
@@ -113,7 +113,7 @@
 		transform: translate(0, 0);
 	}
 	50% {
-		transform: translate(-120%, 0);
+		transform: translate(-120%, 50%);
 	}
 	100% {
 		transform: translate(-107%, -660%);
@@ -134,4 +134,9 @@
 	100% {
 		transform: translate(-107%, -760%);
 	}
+}
+
+
+.event-loop-push{
+	transform: translateY(550%);
 }
