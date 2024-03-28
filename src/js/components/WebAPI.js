@@ -17,13 +17,18 @@ class WebAPI {
 	}
 
 	pop() {
-		const box = document.querySelector(".web-api .code-box");
-		box.remove();
+		const block = document.querySelector(".web-api .code-box");
+		setTimeout(() => block.remove());
+		return block.innerHTML;
 	}
 
 	isPromise(api) {
 		const WEP_API = ["Promise", "then", "catch"];
 		return WEP_API.includes(api);
+	}
+
+	toString() {
+		return "webApi";
 	}
 }
 
