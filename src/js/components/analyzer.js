@@ -4,6 +4,7 @@ import WebAPI from "./WebAPI.js";
 import MicroQueue from "./MicroQueue.js";
 import TaskQueue from "./TaskQueue.js";
 import excuteEventLoop from "./EventLoop.js";
+import { PARSER } from "../utils/Constants.js";
 
 const memories = {
 	callstack: [],
@@ -32,7 +33,7 @@ export async function analyze(code) {
 
 	for (let i = 0; i <= codeLines.length; i++) {
 		let codeLine = codeLines[i];
-		const api = isWebAPI(codeLine);
+		const api = Parser.isWebAPI(codeLine);
 		if (api) codeLine = `${api}();`;
 
 		const callstack = new CallStack(codeLine);
@@ -60,15 +61,8 @@ export async function analyze(code) {
 	}
 }
 
-function isWebAPI(line) {
-	const WEB_API_REGEXP = [/setTimeout/, /setInterval/, /setImmediate/, /Promise/, /then/, /fetch/];
-	const result = WEB_API_REGEXP.find((regexp) => regexp.test(line));
-	if (result) return result.toString().slice(1, -1);
-	return false;
-}
-
 async function webAPI(api, callstack, codeLines, i) {
-	if (api === "fetch") {
+	if (api === PARSER.FETCH || api === PARSER.CATCH) {
 		await memories.pop(callstack);
 		return;
 	}
