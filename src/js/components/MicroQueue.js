@@ -16,7 +16,7 @@ class MicroQueue {
 	pop() {
 		const box = document.querySelector(".microtask-queue .code-box");
 		box.classList.remove("goto-micro");
-		box.classList.add("goto-call-stack"); //TODO
+		box.classList.add("goto-call-stack");
 		return new Promise((resolve) =>
 			setTimeout(() => {
 				box.classList.remove("goto-call-stack");
