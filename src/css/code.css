@@ -92,7 +92,7 @@ textarea {
 	& > button {
 		width: 20px;
 		height: 20px;
-		border-radius: 25px;
+		border-radius: 10px;
 		margin-left: 5px;
 		&:first-child {
 			background-color: var(--call-stack-color);
