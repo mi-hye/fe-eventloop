@@ -20,7 +20,7 @@ class CallStack {
 
 	pop() {
 		const box = document.querySelector(".call-stack .code-box");
-		box.classList.remove("push");
+		box.classList.remove("push","event-loop-push");
 		box.classList.add("pop");
 		return new Promise((resolve) =>
 			setTimeout(() => {
@@ -33,11 +33,9 @@ class CallStack {
 	eventloopPush(box) {
 		Elements.$callStack.appendChild(box);
 		const callstackBox = document.querySelector(".call-stack .code-box");
-		callstackBox.classList.add("pop");
-		// box.remove();
+		callstackBox.classList.add("event-loop-push");
 		return new Promise((resolve) =>
 			setTimeout(() => {
-				callstackBox.remove();
 				resolve();
 			}, ANIMATION.delay)
 		);
