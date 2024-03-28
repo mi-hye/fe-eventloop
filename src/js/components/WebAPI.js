@@ -5,11 +5,14 @@ class WebAPI {
 	#block;
 
 	constructor(code) {
-		this.#block = `<span class="code-box goto-web">${code}</span>`;
+		const $span = document.createElement("span");
+		$span.innerHTML = `${code}`;
+		$span.classList.add("code-box", "goto-web");
+		this.#block = $span;
 	}
 
 	push() {
-		Elements.$webAPI.innerHTML = this.#block;
+		Elements.$webAPI.prepend(this.#block);
 		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 	}
 
