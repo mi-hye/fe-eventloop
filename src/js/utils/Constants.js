@@ -25,7 +25,7 @@ export const RED_CODE = `fetch('https://api.example.com/data', {
 .then(data => { 
     console.log(data) 
 })
-.catch(error => console.error('There was a problem with your fetch operation:', error));
+.catch(error => console.error('There was a problem', error));
 
 setTimeout(function() {
     alert('This message is shown after 3 seconds');
@@ -42,8 +42,10 @@ export const ANIMATION = {
 	delay: 1500,
 };
 
-export const CALL_BACK = {
+export const PARSER = {
 	firstChar: 1,
 	lastChar: -1,
 	maxLength: 30,
+	FETCH: "fetch",
+	CATCH: "catch",
 };
