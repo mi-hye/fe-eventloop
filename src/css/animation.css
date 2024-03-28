@@ -10,26 +10,24 @@
 	0% {
 		transform: translateY(-100%);
 	}
-	30% {
-		transform: translateY(550%);
+	40% {
+		transform: translateY(580%);
 	}
 	50% {
-		transform: translateY(500%);
+		transform: translateY(520%);
 	}
-	65% {
-		transform: translateY(550%);
-	}
+	65%,
 	100% {
-		transform: translateY(550%);
+		transform: translateY(580%);
 	}
 }
 
 @keyframes pop {
 	0% {
-		transform: translateY(550%);
+		transform: translateY(580%);
 	}
 	20% {
-		transform: translateY(570%);
+		transform: translateY(620%);
 	}
 	100% {
 		transform: translateY(-100%);
@@ -37,16 +35,16 @@
 }
 
 .goto-web {
-	transform: translate(-128%, 500%);
+	transform: translate(-128%, 580%);
 	animation: 1.3s ease-in-out 1 forwards gotoweb;
 }
 
 @keyframes gotoweb {
 	from {
-		transform: translate(-128%, 500%);
+		transform: translate(-128%, 580%);
 	}
 	to {
-		transform: translate(0, 500%);
+		transform: translate(0, 580%);
 	}
 }
 
@@ -136,7 +134,6 @@
 	}
 }
 
-
-.event-loop-push{
+.event-loop-push {
 	transform: translateY(550%);
 }
