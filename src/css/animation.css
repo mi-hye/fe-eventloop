@@ -44,23 +44,23 @@
 		transform: translate(-128%, 580%);
 	}
 	to {
-		transform: translate(0, 580%);
+		transform: translate(0, 500%);
 	}
 }
 
 .goto-micro {
-	transform: translate(20%, -320%);
+	transform: translate(20%, -300%);
 	animation: 1.5s ease-in-out 1 forwards gotoMicro;
 }
 
 .goto-task-queue {
-	transform: translate(20%, -660%);
+	transform: translate(20%, -640%);
 	animation: 1.5s ease-in-out 1 forwards gotoMacro;
 }
 
 @keyframes gotoMicro {
 	0% {
-		transform: translate(20%, -320%);
+		transform: translate(20%, -300%);
 	}
 	33% {
 		transform: translate(120%, -320%);
@@ -75,7 +75,7 @@
 
 @keyframes gotoMacro {
 	0% {
-		transform: translate(20%, -660%);
+		transform: translate(20%, -640%);
 	}
 	33% {
 		transform: translate(120%, -660%);
@@ -101,39 +101,49 @@
 	}
 }
 
-.goto-call-stack {
+.from-micro-goto-call-stack {
 	transform: translate(0, 0);
-	animation: 1.5s ease-in-out 1 forwards gotoCallStack;
+	animation: 1.5s ease-in-out 1 forwards fromMicroGotoCallStack;
 }
 
-@keyframes gotoCallStack {
+.from-task-queue-goto-call-stack {
+	transform: translate(0, 0);
+	animation: 1.5s ease-in-out 1 forwards fromTaskQueueGotoCallStack;
+}
+
+@keyframes fromMicroGotoCallStack {
 	0% {
 		transform: translate(0, 0);
+		opacity: 100%;
 	}
 	50% {
 		transform: translate(-120%, 50%);
 	}
+	70% {
+		opacity: 100%;
+	}
 	100% {
-		transform: translate(-107%, -660%);
+		transform: translate(-115%, -340%);
+		opacity: 0;
 	}
 }
 
-.event-loop-pop {
-	transform: translate(-107%, -660%);
-}
-
-@keyframes event-loop-pop {
+@keyframes fromTaskQueueGotoCallStack {
 	0% {
-		transform: translate(-107%, -660%);
+		transform: translate(0, 0);
+		opacity: 100%;
 	}
-	20% {
-		transform: translate(-107%, -680%);
+	50% {
+		transform: translate(-120%, 50%);
+	}
+	70% {
+		opacity: 100%;
 	}
 	100% {
-		transform: translate(-107%, -760%);
+		transform: translate(-120%, -630%);
+		opacity: 0;
 	}
 }
-
 .event-loop-push {
 	transform: translateY(550%);
 }
