@@ -15,7 +15,12 @@ const memories = {
 	},
 	async pop(memory) {
 		memories[memory.toString()].pop();
-		await memory.pop();
+		return await memory.pop();
+	},
+	async callStackPush(block) {
+		const callstack = new CallStack();
+		memories.callstack.push(callstack);
+		await callstack.eventloopPush(block);
 	},
 };
 
@@ -28,13 +33,18 @@ export async function analyze(code) {
 		const api = isWebAPI(codeLine);
 		if (api) codeLine = `${api}();`;
 
-		const callstack = new CallStack(codeLine); //이벤트루프가 알아야함
+		const callstack = new CallStack(codeLine);
 		await memories.push(callstack);
-		// await callstack.push();
 
 		if (api) {
 			await webAPI(api, callstack, codeLines, i);
-		} else await memories.pop(callstack);
+		} //else await memories.pop(callstack);
+
+		//eventroof가 callstack이 비어있으면 큐에 있는 애들 이동
+		await excuteEventLoop(memories);
+
+		if (memories.callstack.length)
+			memories.callstack.forEach(async (memory) => await memories.pop(memory));
 	}
 }
 
@@ -72,6 +82,4 @@ async function webAPI(api, callstack, codeLines, i) {
 		await memories.push(taskQueue);
 		// await taskQueue.push();
 	}
-	//eventroof가 callstack이 비어있으면 큐에 있는 애들 이동
-	await excuteEventLoop(memories);
 }
