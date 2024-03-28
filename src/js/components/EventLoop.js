@@ -1,25 +1,24 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "../utils/Elements.js";
-import CallStack from "./CallStack.js";
 
-function excuteEventLoop(memories) {
+async function excuteEventLoop(memories) {
 	//TODO refactor
 	if (!memories.callstack.length && memories.microQueue.length) {
 		Elements.$eventLoop.classList.add("excute");
 		//스택이 비어있고 마이크로 큐가 비어있지 않으면 실행
-		memories.microQueue.forEach(async (memory) => {
+		for (const memory of memories.microQueue) {
 			const block = await memories.pop(memory);
-			await memories.callStackPush(block);
-		});
+			memories.callStackPush(block);
+		}
 	}
 
 	if (!memories.callstack.length && memories.taskQueue.length) {
-		//스택이 비어있고 테스크 큐가 비어있지 않으면 실행
 		Elements.$eventLoop.classList.add("excute");
-		memories.taskQueue.forEach(async (memory) => {
+		//스택이 비어있고 테스크 큐가 비어있지 않으면 실행
+		for (const memory of memories.taskQueue) {
 			const block = await memories.pop(memory);
-			await memories.callStackPush(block);
-		});
+			memories.callStackPush(block);
+		}
 	}
 
 	return new Promise((resolve) =>
