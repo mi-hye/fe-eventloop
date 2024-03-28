@@ -9,12 +9,8 @@ class CallStack {
 		this.#block = `<span class="code-box push">${code}</span>`;
 	}
 
-	//TODO flag = true
 	push() {
 		Elements.$callStack.innerHTML = this.#block;
-		// const box = document.querySelector(".call-stack .code-box");
-		// if (flag) box.classList.add("push");
-		// else box.classList.add("from-to-queue");
 		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 	}
 
@@ -34,11 +30,6 @@ class CallStack {
 		Elements.$callStack.appendChild(box);
 		const callstackBox = document.querySelector(".call-stack .code-box");
 		callstackBox.classList.add("event-loop-push");
-		return new Promise((resolve) =>
-			setTimeout(() => {
-				resolve();
-			}, ANIMATION.delay)
-		);
 	}
 
 	toString() {
