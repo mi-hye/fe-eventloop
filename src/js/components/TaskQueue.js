@@ -16,10 +16,10 @@ class TaskQueue {
 	pop() {
 		const box = document.querySelector(".macrotask-queue .code-box");
 		box.classList.remove("goto-task-queue");
-		box.classList.add("goto-call-stack"); 
+		box.classList.add("from-task-queue-goto-call-stack");
 		return new Promise((resolve) =>
 			setTimeout(() => {
-				box.classList.remove("goto-call-stack");
+				box.classList.remove("from-task-queue-goto-call-stack");
 				resolve(box);
 				box.remove();
 			}, ANIMATION.delay)
