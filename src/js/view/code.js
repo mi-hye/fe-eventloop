@@ -1,4 +1,4 @@
-import Elements from "../utils/Elements.js";
+import Elements from "../components/Elements.js";
 import { GREEN_CODE, RED_CODE, BTN_CLASS_NAME } from "../utils/Constants.js";
 import { analyze } from "../components/Analyzer.js";
 

@@ -1,5 +1,5 @@
 import { ANIMATION } from "../utils/Constants.js";
-import Elements from "../utils/Elements.js";
+import Elements from "./Elements.js";
 
 class CallStack {
 	// TODO 각 class -> prototype / 겹치는거 많음 상속으로 변경
@@ -16,7 +16,7 @@ class CallStack {
 
 	pop() {
 		const box = document.querySelector(".call-stack .code-box");
-		box.classList.remove("push","event-loop-push");
+		box.classList.remove("push", "event-loop-push");
 		box.classList.add("pop");
 		return new Promise((resolve) =>
 			setTimeout(() => {
