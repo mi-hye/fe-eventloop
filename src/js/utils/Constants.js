@@ -45,7 +45,7 @@ export const ANIMATION = {
 export const PARSER = {
 	firstChar: 1,
 	lastChar: -1,
-	maxLength: 30,
+	maxLength: 40,
 	FETCH: "fetch",
 	CATCH: "catch",
 };
