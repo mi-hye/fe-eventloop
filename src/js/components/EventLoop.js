@@ -1,7 +1,7 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "./Elements.js";
 
-async function deliveryCallstackFrom(memories, queue) {
+async function deliveryCallstackFrom(queue, memories) {
 	const isEmptyCalltack = !memories.callstack.length;
 	const isFullQueue = memories[queue].length;
 
@@ -15,8 +15,8 @@ async function deliveryCallstackFrom(memories, queue) {
 }
 
 async function excuteEventLoop(memories) {
-	deliveryCallstackFrom(memories, "microQueue");
-	deliveryCallstackFrom(memories, "taskQueue");
+	deliveryCallstackFrom("microQueue", memories);
+	deliveryCallstackFrom("taskQueue", memories);
 
 	return new Promise((resolve) =>
 		setTimeout(() => {
