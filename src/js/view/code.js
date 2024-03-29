@@ -13,9 +13,7 @@ const CLASSNAME_MAP = {
 };
 
 function addEvnetCodeExcute() {
-	Elements.$buttons.addEventListener("click", ({ target }) => {
-		CLASSNAME_MAP[target.className]();
-	});
+	Elements.$buttons.addEventListener("click", ({ target }) => CLASSNAME_MAP[target.className]?.());
 }
 
 export default addEvnetCodeExcute;
