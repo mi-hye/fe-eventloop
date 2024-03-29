@@ -1,9 +1,9 @@
-import Parser from "./Parser.js";
-import CallStack from "./CallStack.js";
-import WebAPI from "./WebAPI.js";
-import MicroQueue from "./MicroQueue.js";
-import TaskQueue from "./TaskQueue.js";
-import excuteEventLoop from "./EventLoop.js";
+import Parser from "../components/Parser.js";
+import CallStack from "../components/CallStack.js";
+import WebAPI from "../components/WebAPI.js";
+import MicroQueue from "../components/MicroQueue.js";
+import TaskQueue from "../components/TaskQueue.js";
+import excuteEventLoop from "../components/EventLoop.js";
 import { PARSER } from "../utils/Constants.js";
 
 const memories = {
