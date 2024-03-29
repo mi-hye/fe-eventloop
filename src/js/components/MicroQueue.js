@@ -1,16 +1,14 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "./Elements.js";
+import Memory from "./Memory.js";
 
-class MicroQueue {
-	#block;
-
+class MicroQueue extends Memory {
 	constructor(code) {
-		this.#block = `<span class="code-box goto-micro">${code}</span>`;
+		super(code, "goto-micro");
 	}
 
-	push() {
-		Elements.$micro.innerHTML = this.#block;
-		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
+	async push() {
+		await super.push(Elements.$micro);
 	}
 
 	pop() {

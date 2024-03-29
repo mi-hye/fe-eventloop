@@ -1,26 +1,23 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "./Elements.js";
+import Memory from "./Memory.js";
 
-class CallStack {
-	// TODO 각 class -> prototype / 겹치는거 많음 상속으로 변경
-	#block;
-
+class CallStack extends Memory {
 	constructor(code) {
-		this.#block = `<span class="code-box push">${code}</span>`;
+		super(code, "push");
 	}
 
-	push() {
-		Elements.$callStack.innerHTML = this.#block;
-		return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
+	async push() {
+		await super.push(Elements.$callStack);
 	}
 
 	pop() {
-		const box = document.querySelector(".call-stack .code-box");
-		box.classList.remove("push", "event-loop-push");
-		box.classList.add("pop");
+		const block = document.querySelector(".call-stack .code-box");
+		block.classList.remove("push", "event-loop-push");
+		block.classList.add("pop");
 		return new Promise((resolve) =>
 			setTimeout(() => {
-				box.remove();
+				block.remove();
 				resolve();
 			}, ANIMATION.delay)
 		);

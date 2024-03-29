@@ -3,7 +3,6 @@ import Elements from "./Elements.js";
 
 class WebAPI {
 	#block;
-
 	constructor(code) {
 		const $span = document.createElement("span");
 		$span.innerHTML = `${code}`;
