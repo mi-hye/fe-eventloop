@@ -27,51 +27,16 @@ const memories = {
 	},
 };
 
-export async function analyze(code) {
-	//FIXME
-	const codeLines = Parser.getLines(code);
-
-	for (let i = 0; i <= codeLines.length; i++) {
-		let codeLine = codeLines[i];
-		const api = Parser.isWebAPI(codeLine);
-		if (api) codeLine = `${api}();`;
-
-		const callstack = new CallStack(codeLine);
-		if (i < codeLines.length) await memories.push(callstack);
-
-		if (api) await webAPI(api, callstack, codeLines, i);
-
-		if (i === codeLines.length) {
-			//아니면 task로
-			if (memories.webApi.length)
-				for (const memory of memories.webApi) {
-					const block = await memories.pop(memory);
-					const taskQueue = new TaskQueue(block);
-					await memories.push(taskQueue);
-				}
-		}
-
-		//eventroof가 callstack이 비어있으면 큐에 있는 애들 이동
-		await excuteEventLoop(memories);
-
-		if (memories.callstack.length)
-			for (const memory of memories.callstack) {
-				await memories.pop(memory);
-			}
-	}
-}
-
 async function webAPI(api, callstack, codeLines, i) {
 	if (api === PARSER.FETCH || api === PARSER.CATCH) {
 		await memories.pop(callstack);
 		return;
 	}
 
-	//wep이면
 	const callback = Parser.matchCallbackFn(codeLines[i]);
 	const webApi = new WebAPI(callback);
 	await memories.push(webApi);
-	await memories.pop(callstack); // callstack 제거
+	await memories.pop(callstack);
 
 	if (webApi.isPromise(api)) {
 		//promise면 micro로
@@ -80,3 +45,48 @@ async function webAPI(api, callstack, codeLines, i) {
 		await memories.push(micro);
 	}
 }
+
+function replaceWebAPIWord(line) {
+	let codeLine = line;
+	const api = Parser.isWebAPI(codeLine);
+	if (api) codeLine = `${api}();`;
+	return { codeLine, api };
+}
+
+async function excuteWebAPILeft(i, length) {
+	const isOverCode = i === length;
+	const isNotEmptyWebAPI = memories.webApi.length;
+
+	if (isOverCode && isNotEmptyWebAPI)
+		for (const memory of memories.webApi) {
+			const block = await memories.pop(memory);
+			const taskQueue = new TaskQueue(block);
+			await memories.push(taskQueue);
+		}
+}
+
+async function excuteCallStackLeft() {
+	const isNotEmptyCallStack = memories.callstack.length;
+	if (isNotEmptyCallStack)
+		for (const memory of memories.callstack) {
+			await memories.pop(memory);
+		}
+}
+
+async function analyze(code) {
+	const codeLines = Parser.getLines(code);
+
+	for (let i = 0; i <= codeLines.length; i++) {
+		const { codeLine, api } = replaceWebAPIWord(codeLines[i]);
+		const callstack = new CallStack(codeLine);
+		if (i < codeLines.length) await memories.push(callstack);
+
+		if (api) await webAPI(api, callstack, codeLines, i);
+
+		await excuteWebAPILeft(i, codeLines.length);
+		await excuteEventLoop(memories);
+		await excuteCallStackLeft();
+	}
+}
+
+export { analyze };
