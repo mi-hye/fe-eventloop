@@ -1,25 +1,22 @@
 import { ANIMATION } from "../utils/Constants.js";
 import Elements from "./Elements.js";
 
-async function excuteEventLoop(memories) {
-	//TODO refactor
-	if (!memories.callstack.length && memories.microQueue.length) {
-		Elements.$eventLoop.classList.add("excute");
-		//스택이 비어있고 마이크로 큐가 비어있지 않으면 실행
-		for (const memory of memories.microQueue) {
-			const block = await memories.pop(memory);
-			memories.callStackPush(block);
-		}
-	}
+async function deliveryCallstackFrom(memories, queue) {
+	const isEmptyCalltack = !memories.callstack.length;
+	const isFullQueue = memories[queue].length;
 
-	if (!memories.callstack.length && memories.taskQueue.length) {
+	if (isEmptyCalltack && isFullQueue) {
 		Elements.$eventLoop.classList.add("excute");
-		//스택이 비어있고 테스크 큐가 비어있지 않으면 실행
-		for (const memory of memories.taskQueue) {
+		for (const memory of memories[queue]) {
 			const block = await memories.pop(memory);
 			memories.callStackPush(block);
 		}
 	}
+}
+
+async function excuteEventLoop(memories) {
+	deliveryCallstackFrom(memories, "microQueue");
+	deliveryCallstackFrom(memories, "taskQueue");
 
 	return new Promise((resolve) =>
 		setTimeout(() => {
