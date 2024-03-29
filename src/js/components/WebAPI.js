@@ -8,22 +8,24 @@ function WebAPI(code) {
 	this.block = $span;
 }
 
-WebAPI.prototype.push = () => {
+WebAPI.prototype.push = function () {
 	Elements.$webAPI.prepend(this.block);
 	return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 };
 
-WebAPI.prototype.pop = () => {
+WebAPI.prototype.pop = function () {
 	const block = document.querySelector(".web-api .code-box");
 	setTimeout(() => block.remove());
 	return block.innerHTML;
 };
 
-WebAPI.prototype.isPromise = (api) => {
+WebAPI.prototype.isPromise = function (api) {
 	const WEP_API = ["Promise", "then", "catch"];
 	return WEP_API.includes(api);
 };
 
-WebAPI.prototype.toString = () => "webApi";
+WebAPI.prototype.toString = function () {
+	return "webApi";
+};
 
 export default WebAPI;
