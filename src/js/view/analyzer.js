@@ -11,6 +11,9 @@ const memories = {
 	microQueue: [],
 	taskQueue: [],
 	webApi: [],
+	/**
+	 * @param {Memory|CallStack|WebAPI|MicroQueue|TaskQueue} memory - 메모리 객체
+	 */
 	async push(memory) {
 		memories[memory.targetQueue].push(memory);
 		await memory.push();
