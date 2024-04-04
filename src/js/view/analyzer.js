@@ -19,14 +19,14 @@ const memories = {
 		await memory.push();
 	},
 	async pop(memory) {
-		const block = await memory.pop();
+		const elementHTML = await memory.pop();
 		memories[memory.targetQueue].pop();
-		return block;
+		return elementHTML;
 	},
-	callStackPush(block) {
+	callStackPush(elementHTML) {
 		const callstack = new CallStack();
 		memories.callstack.push(callstack);
-		callstack.eventloopPush(block);
+		callstack.eventloopPush(elementHTML);
 	},
 };
 
