@@ -46,8 +46,7 @@ async function webAPI(api, callstack, codeLines, i) {
 	}
 }
 
-function replaceWebAPIWord(line) {
-	let codeLine = line;
+function replaceWebAPIWord(codeLine) {
 	const api = Parser.isWebAPI(codeLine);
 	if (api) codeLine = `${api}();`;
 	return { codeLine, api };
