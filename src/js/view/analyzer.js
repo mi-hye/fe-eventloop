@@ -12,7 +12,6 @@ const memories = {
 	taskQueue: [],
 	webApi: [],
 	async push(memory) {
-		console.log(memory);
 		memories[memory.targetQueue].push(memory);
 		await memory.push();
 	},
