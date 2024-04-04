@@ -1,10 +1,10 @@
-import Parser from "../components/Parser.js";
-import CallStack from "../components/CallStack.js";
-import WebAPI from "../components/WebAPI.js";
-import MicroQueue from "../components/MicroQueue.js";
-import TaskQueue from "../components/TaskQueue.js";
-import excuteEventLoop from "../components/EventLoop.js";
-import { PARSER } from "../utils/Constants.js";
+import Parser from '../components/Parser.js';
+import CallStack from '../components/CallStack.js';
+import WebAPI from '../components/WebAPI.js';
+import MicroQueue from '../components/MicroQueue.js';
+import TaskQueue from '../components/TaskQueue.js';
+import excuteEventLoop from '../components/EventLoop.js';
+import { PARSER } from '../utils/Constants.js';
 
 const memories = {
 	callstack: [],
@@ -12,12 +12,13 @@ const memories = {
 	taskQueue: [],
 	webApi: [],
 	async push(memory) {
-		memories[memory.toString()].push(memory);
+		console.log(memory);
+		memories[memory.targetQueue].push(memory);
 		await memory.push();
 	},
 	async pop(memory) {
 		const block = await memory.pop();
-		memories[memory.toString()].pop();
+		memories[memory.targetQueue].pop();
 		return block;
 	},
 	callStackPush(block) {
