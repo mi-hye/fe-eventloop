@@ -13,8 +13,9 @@ class MicroQueue extends Memory {
 
 	pop() {
 		const box = document.querySelector('.microtask-queue .code-box');
-		box.classList.remove('goto-micro');
-		box.classList.add('from-micro-goto-call-stack');
+		if (!box) return;
+		box && box.classList.remove('goto-micro');
+		box && box.classList.add('from-micro-goto-call-stack');
 		return new Promise((resolve) =>
 			setTimeout(() => {
 				box.classList.remove('from-micro-goto-call-stack');

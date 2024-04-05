@@ -11,8 +11,9 @@ class TaskQueue extends Memory {
 	}
 	pop() {
 		const box = document.querySelector('.macrotask-queue .code-box');
-		box.classList.remove('goto-task-queue');
-		box.classList.add('from-task-queue-goto-call-stack');
+		if (!box) return;
+		box && box.classList.remove('goto-task-queue');
+		box && box.classList.add('from-task-queue-goto-call-stack');
 		return new Promise((resolve) =>
 			setTimeout(() => {
 				box.classList.remove('from-task-queue-goto-call-stack');

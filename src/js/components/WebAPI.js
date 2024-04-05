@@ -4,20 +4,22 @@ import Elements from './Elements.js';
 function WebAPI(code) {
 	const $span = document.createElement('span');
 	$span.innerHTML = `${code}`;
-	$span.classList.add('code-box', 'goto-web');
+	$span && $span.classList.add('code-box', 'goto-web');
 	this.block = $span;
 	this.targetQueue = 'webApi';
 }
 
 WebAPI.prototype.push = function () {
-	Elements.$webAPI.prepend(this.block);
+	Elements && Elements.$webAPI.prepend(this.block);
+	if (!this.block) return;
 	return new Promise((resolve) => setTimeout(() => resolve(), ANIMATION.delay));
 };
 
 WebAPI.prototype.pop = function () {
 	const block = document.querySelector('.web-api .code-box');
+	if (!block) return;
 	setTimeout(() => block.remove());
-	return block.innerHTML;
+	return block && block.innerHTML;
 };
 
 WebAPI.prototype.isPromise = function (api) {
