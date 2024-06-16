@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Event Loop</title>
+		<script defer src="https://kit.fontawesome.com/677c473c16.js" crossorigin="anonymous"></script>
+		<link href="./src/css/style.css" rel="stylesheet" />
+		<script defer type="module" src="./src/js/main.js"></script>
+	</head>
+	<body>
+		<main class="event-loop-wrap">
+			<section class="code-section-wrap">
+				<div class="code-wrap">
+					<textarea class="code__excute" readonly></textarea>
+					<section class="code__input">
+						<textarea placeholder="Click the colored Button!!" readonly></textarea>
+						<div class="code__input__btn">
+							<div class="code__input__code-btn">
+								<button class="green"></button>
+								<button class="red"></button>
+							</div>
+							<button class="code__input__excute">Excute</button>
+						</div>
+					</section>
+				</div>
+			</section>
+			<section class="execution-context-wrap">
+				<section class="stack-wrap">
+					<div class="call-stack">
+						<h1>CALL STACK</h1>
+						<div class="box"></div>
+					</div>
+					<div class="web-api">
+						<h1>WEB API</h1>
+						<div class="box"></div>
+					</div>
+					<div class="arrow-box">
+						<div></div>
+						<div></div>
+					</div>
+				</section>
+				<section class="queue-eventloop-wrap">
+					<section class="event-loop">
+						<i class="fa-solid fa-arrow-up fa-xl"></i>
+						<div>
+							EVENT LOOP
+							<span class="event-loop__loop-arrow">
+								<i class="fa-solid fa-rotate fa-2xl"></i>
+							</span>
+						</div>
+					</section>
+					<section class="queue-wrap">
+						<div class="microtask-queue">
+							<i class="fa-solid fa-arrows-left-right fa-2xl"></i>
+							<h1>MICROTASK QUEUE</h1>
+							<div class="box"></div>
+						</div>
+						<div class="macrotask-queue">
+							<i class="fa-solid fa-arrows-left-right fa-2xl"></i>
+							<h1>MACROTASK QUEUE</h1>
+							<div class="box"></div>
+						</div>
+					</section>
+				</section>
+			</section>
+		</main>
+	</body>
+</html>
